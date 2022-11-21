@@ -8,8 +8,9 @@
         <field name="model">product.product</field>
         <field name="inherit_id" ref="product.product_normal_form_view" />
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='uom_po_id']" position="after">
-                <field name="notes" attrs="{'invisible':[('product_variant_count', '&lt;=' ,1)]}"/>
+            <xpath expr="//notebook/page[@name='general_information']/group[1]" position="after">
+                <label for="notes" string="Notes"/>
+                <field name="notes" attrs="{'invisible':[('product_variant_count', '&lt;=' ,1)]}" placeholder="This note is only for multiple variant."/>
             </xpath> 
             <xpath expr="//notebook/page[@name='general_information']/group[2]" position="attributes">
                 <attribute name="attrs">{'invisible':[('product_variant_count', '&gt;' ,1)]}</attribute>
